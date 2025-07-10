@@ -8,7 +8,7 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"  # Optional for HTTPS
 spec:
   rules:
-  - host: budget-app.yourdomain.com  # 👈 Your domain here
+  - host: budget-app.mydomain.com  # 👈 Your domain here
     http:
       paths:
       - path: /
