@@ -1,0 +1,28 @@
+version: '3.8'  # It's a good practice to specify a more recent version
+
+services:
+  web:
+    build: .
+    image: makug/budget-app:latest
+    command: rails server -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development  # Specify the Rails environment
+      DATABASE_URL:  postgres://Budgy_dp:Azsxdc312@db:5432/Budgy_development  # Connection string for PostgreSQL
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: Budgy_dp          # Replace with your desired username
+      POSTGRES_PASSWORD: Azsxdc312    # Replace with your desired password
+      POSTGRES_DB: Budgy_development     # Replace with your desired database name
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

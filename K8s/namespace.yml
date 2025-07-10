@@ -1,0 +1,9 @@
+# namespace.yml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: budget-app
+  labels:
+    name: budget-app
+    app: budget-app
+    environment: production  # or 'development' if needed

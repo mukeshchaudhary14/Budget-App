@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails-app
+  namespace: budget-app  
+  labels:
+    app: budget-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: budget-app
+  template:
+    metadata:
+      labels:
+        app: budget-app
+    spec:
+      containers:
+      - name: rails-app
+        image: makug/budget-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: RAILS_ENV
+          value: "developmen18.201.61.178t"
+        - name: DATABASE_URL
+          value: "postgres://Budgy_dp:Azsxdc3%21%2312@postgres:5432/Budgy_development"
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: rails-secrets
+              key: SECRET_KEY_BASE    
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

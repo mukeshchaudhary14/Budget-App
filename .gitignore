@@ -31,3 +31,12 @@
 /config/master.key
 
 node_modules/
+# Kubernetes
+*.swp
+*.bak
+*.tmp
+
+# Local secrets
+*credentials*
+*secrets*
+.env

@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rails-migrations
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: migrations
+        image: makug/budget-app:latest
+        command: ["bin/rails", "db:migrate"]
+        env:
+        - name: RAILS_ENV
+          value: "production"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: url
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: rails-secrets
+              key: SECRET_KEY_BASE
+      restartPolicy: Never
+  backoffLimit: 1

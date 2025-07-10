@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "budget-app"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"  # Ensure this points to the correct README file
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+# Add your other dependencies here
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
