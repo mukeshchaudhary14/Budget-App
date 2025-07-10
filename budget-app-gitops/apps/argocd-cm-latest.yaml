@@ -1,0 +1,32 @@
+apiVersion: v1
+data:
+  accounts.admin: apiKey,login
+  admin.enabled: "true"
+  application.resourceTrackingMethod: annotation
+  cluster.incluster: "true"
+  cluster.tolerate-master-taint: "true"
+  repositories: |
+    - url: git@github.com:mukeshchaudhary14/Budget-App.git
+      type: git
+      name: budget-app-repo
+      sshPrivateKeySecret:
+        name: budget-app-repo-secret
+        key: sshPrivateKey
+  resource.compareoptions: |
+    ignoreAggregatedRoles: true
+    ignoreResourceStatusField: all
+  timeout.reconciliation: 180s
+  users.anonymous.enabled: "false"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"accounts.admin":"apiKey,login","admin.enabled":"true","application.resourceTrackingMethod":"annotation","cluster.incluster":"true","cluster.tolerate-master-taint":"true","repositories":"- url: git@github.com:mukeshchaudhary14/Budget-App.git\n  type: git\n  name: budget-app-repo\n  sshPrivateKeySecret:\n    name: budget-app-repo-secret\n    key: sshPrivateKey\n","resource.compareoptions":"ignoreAggregatedRoles: true\nignoreResourceStatusField: all\n","timeout.reconciliation":"180s","users.anonymous.enabled":"false"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-cm","namespace":"argocd"}}
+  creationTimestamp: "2025-07-10T07:30:40Z"
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cm
+  namespace: argocd
+  resourceVersion: "23800"
+  uid: 0fde7f7f-6fcf-4c7c-896a-2f6d35500b89
