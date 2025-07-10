@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rails-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"  # Optional for HTTPS
+spec:
+  rules:
+  - host: budget-app.yourdomain.com  # 👈 Your domain here
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rails-service
+            port:
+              number: 3000
+  tls:  # 👈 Optional TLS section for HTTPS
+  - hosts:
+    - budget-app.yourdomain.com
+    secretName: budget-app-tls
+
+
+

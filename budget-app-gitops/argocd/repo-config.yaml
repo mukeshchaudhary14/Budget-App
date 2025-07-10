@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: budget-app-repo-secret
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://github.com/mukeshchaudhary14/Budget-App.git
+  sshPrivateKey: |
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCd4r7Ad9RayDy+gYbkG7uG+Sa//OAYACFskK8uLWtIN6BbhSyG53LnvtF2j0mYjF3PiIxRzVLEg9AhV5GzYkwtZdcKjqbynQt6nu2QzmyAQiZ4jMjmBSl8jJlArLm2LzcvaBnSW+fxPPrqqlLPnY+O2MRZmCvWTUVEfHs4Sz/KPL4dX3bPhy1AFt/UxugNwyFLxcWle5gzbcflRchC2MSrZGhMJx4PBipmqDAXV3rOMTZw61IZgx7wgS/byyJRwL8c2/NIbqw7B8TNJnGb+9l9SCZUKlT+BARgaA2e/kVjY9jG62WZw07xpi4GSGzXT1d8TotB+XJuVlwUd+dpMnIk5WHcerEl7Mqk+tjyk8laFe4BFXvdhplM13TL9LxDPaFcA4aTlU1MyWkEGYt83n88EcAbriwUA4wTph4lTK80M28ReN7uqitr0sPbwrM8OMOqPITNj8/F80ukU1O279ZlNTmVTs9GLlmo0QUATp6deGYeyYN2CBGnSwJZBK9U4AgHi/VibC48uFt45c5E9QYgqet/MqPbcqj1KGVZRpUqSWAZb/+LYo9sLlFVzSi7o1ueqrACPiOIs32UMqd4Ybrdve0VHlD/nVczYFlcB6XibvfZYsXTl2ZGRNSuffbryzMSQKw9JAnVWH5+c7R89HOY5av4f/BIXF/7MIxBZRxitQ== mukesh.chaudhary.1716@gmail.com
